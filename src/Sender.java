@@ -9,9 +9,11 @@ public class Sender implements Runnable{
     private int messagesFailed = 0;
     private double totalTime = 0;
 
-    public Sender(BlockingQueue<Message> messageQueue, double meanProcessingTime, double failureRate) {
+    public Sender(BlockingQueue<Message> messageQueue, double meanProcessingTime,
+                  double failureRate) {
         if (meanProcessingTime < 0 || failureRate < 0) {
-            throw new IllegalArgumentException("Mean processing time and failure rate must be non-negative.");
+            throw new IllegalArgumentException("Mean processing time " +
+                    "and failure rate must be non-negative.");
         }
 
         this.messageQueue = messageQueue;
